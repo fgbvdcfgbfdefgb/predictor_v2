@@ -13,6 +13,7 @@ Place Parquet files under `data/processed/<exchange>/<symbol>/<YYYY-MM-DD>.parqu
 ## Snowflake / offline training
 ```bash
 pip install -r requirements.txt
+pip install -e .
 python scripts/check_resources.py
 python -m predictor_v2.train --config configs/default.yaml
 ```

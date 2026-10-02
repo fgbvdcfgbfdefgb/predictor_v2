@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import ClassVar
+
 import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
@@ -13,7 +15,7 @@ class ReturnPredictionEnv(gym.Env):
     forecast objective rather than an order-execution strategy.
     """
 
-    metadata = {"render_modes": []}
+    metadata: ClassVar[dict] = {"render_modes": []}
 
     def __init__(
         self,

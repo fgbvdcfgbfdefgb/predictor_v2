@@ -2,15 +2,15 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 from collections import deque
 from datetime import datetime, timezone
-import json
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from stable_baselines3 import PPO
 import websockets
+from stable_baselines3 import PPO
 
 from .config import load_config
 from .data import fetch_klines
@@ -88,7 +88,7 @@ class LivePredictor:
                         self.emit(self.predict(symbol))
             except asyncio.CancelledError:
                 raise
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001 - reconnect on transient network/parser faults
                 print(f"{symbol} stream error: {exc}; reconnecting in {delay}s", flush=True)
                 await asyncio.sleep(delay)
 

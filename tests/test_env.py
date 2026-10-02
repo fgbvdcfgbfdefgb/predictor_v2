@@ -11,7 +11,7 @@ def test_environment_shapes_and_step():
     obs, info = env.reset(seed=2)
     assert obs.shape == (60 * 9 + 3,)
     assert info == {}
-    next_obs, reward, terminated, truncated, detail = env.step(5)
+    next_obs, reward, _terminated, truncated, detail = env.step(5)
     assert next_obs.shape == obs.shape
     assert np.isfinite(reward)
     assert not truncated

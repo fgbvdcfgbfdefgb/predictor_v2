@@ -32,6 +32,13 @@ For a smoke run:
 predictor-train --config config/default.yaml --days 2 --timesteps 10000 --device cpu
 ```
 
+A dated integration-test checkpoint is included under `models/smoke_2026-10-02/`. It is not production-quality; install it for immediate paper inference with:
+
+```bash
+./scripts/use_smoke_model.sh
+predictor-live --config config/default.yaml
+```
+
 Artifacts are written to ignored `artifacts/`:
 
 - `ppo_price_predictor.zip`

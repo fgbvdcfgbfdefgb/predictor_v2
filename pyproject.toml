@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "predictor-v2"
+version = "0.1.0"
+description = "PPO-based one-minute BTC, ETH and LTC return prediction with live paper inference"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+  "gymnasium>=0.29,<2",
+  "numpy>=1.26,<3",
+  "pandas>=2.1,<3",
+  "PyYAML>=6,<7",
+  "requests>=2.31,<3",
+  "stable-baselines3>=2.3,<3",
+  "torch>=2.2",
+  "websockets>=12,<16",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+predictor-train = "predictor_v2.train:main"
+predictor-live = "predictor_v2.live:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

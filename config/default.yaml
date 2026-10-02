@@ -1,0 +1,17 @@
+symbols:
+  - BTCUSDT
+  - ETHUSDT
+  - LTCUSDT
+interval: 1m
+days: 30
+lookback: 60
+prediction_horizon: 1
+action_bins: 11
+max_abs_return: 0.012
+total_timesteps: 250000
+seed: 42
+device: auto
+model_dir: artifacts
+live:
+  paper_log: artifacts/paper_predictions.jsonl
+  reconnect_seconds: 5
